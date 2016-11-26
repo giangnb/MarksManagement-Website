@@ -6,12 +6,13 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['img/favicon.ico']}"/>
         <h:outputStylesheet name="./css/bootstrap.min.css"/>
         <h:outputStylesheet name="./css/bootstrap-theme.min.css"/>
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputScript library="js" name="jquery.min.js" />
         <h:outputScript library="js" name="bootstrap.min.js" target="body" />
-        <title>Website tra cứu điểm</title>
+        <title>Website tra cứu điểm - MarksManager</title>
     </h:head>
 
     <h:body>
@@ -35,16 +36,19 @@
                         <li class="#{viewBean.currentPage==2?'active':''}"><h:commandLink value="Tải về" action="#{viewBean.doGotoPage(2, 'downloads')}"/></li>
                         <li class="#{viewBean.currentPage==3?'active':''}"><h:commandLink value="Liên hệ" action="#{viewBean.doGotoPage(3, 'contacts')}"/></li>
                     </ul>
-                    
+
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dự án MarksManager <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <h:graphicImage library="img" name="icon.png" alt="MarksManager"/>&nbsp;
+                                Dự án MarksManager <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#" target="_blank">Website dự án</a></li>
-                                <li><a href="#" target="_blank">Thành viên</a></li>
+                                <li><a href="http://qldiem.giangnb.com/" target="_blank">Website dự án</a></li>
+                                <li><a href="http://qldiem.giangnb.com#team" target="_blank">Thành viên</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#" target="_blank">GitHub Repositories</a></li>
-                                <li><a href="#" target="_blank">Giới thiệu</a></li>
+                                <li><a href="http://qldiem.giangnb.com#developer" target="_blank">GitHub Repositories</a></li>
+                                <li><a href="http://qldiem.giangnb.com#intro" target="_blank">Giới thiệu</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -52,11 +56,11 @@
             </div>
         </h:form>
 
-        <div id="content" class="container container-fluid">
-            <h:form rendered="#{statusBean.doGetAvailable()}" class="container container-fluid">
+        <div id="content">
+            <h:form rendered="#{statusBean.doGetAvailable()}" id="inner-content" class="container container-fluid">
                 <ui:insert name="content">Content</ui:insert>
             </h:form>
-            
+
             <h:form rendered="#{!statusBean.doGetAvailable()}" style="text-align: center;">
                 <h1 class="text-danger">Dịch vụ tạm thời ngưng hoạt động</h1>
                 <p>
@@ -66,8 +70,24 @@
                     </button>
                 </p>
             </h:form>
+
+            <div class="grower-place"></div>
         </div>
 
+        <footer id="myFooter">
+            <div class="second-bar">
+                <div class="container">
+                    <h2 class="logo"><a href="#">MarksManager</a></h2>
+                    <div class="social-icons">
+                        <h:form>
+                            <h:commandLink value="Liên hệ"/> | 
+                            <h:commandLink value="Chính sách Bảo mật"/> | 
+                            <h:commandLink value="Giới thiệu"/>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </h:body>
 
 </html>
