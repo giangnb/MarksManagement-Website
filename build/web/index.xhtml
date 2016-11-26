@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./MainTemplate.xhtml">
+
+            <ui:define name="content">
+                <div class="row">
+                    <div class="col-sm-8" style="text-align: center;">
+                        <h1><h:outputText value="#{viewBean.info.getValue('school_name')}"/></h1>
+                        <h3><h:outputText value="Học kì #{viewBean.info.getValue('semester')} - Năm học: #{viewBean.info.getValue('school_year')}"/></h3>
+                        <img alt="#{viewBean.info.getValue('school_name')}" src="https://cdn3.iconfinder.com/data/icons/ballicons-reloaded-free/512/icon-61-256.png"/>
+                    </div>
+                    <div class="col-sm-4" style="padding-top: 45px">
+                        <div style="background: rgba(0,0,0,0.15); padding: 10px; padding-bottom: 62px;">
+                            <h3>Tra cứu điểm</h3>
+                            <h:form>
+                                <h:messages class="text-warning"/>
+                                <div class="form-group">
+                                    <label class="control-label">Mã số học sinh</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon glyphicon glyphicon-user"></span>
+                                        <h:inputText value="#{studentBean.id}" class="form-control"/>
+                                        <span class="input-group-btn">
+                                            <h:commandButton class="btn btn-default" type="submit" value="Tra cứu" action="#{studentBean.doGetStudent()}"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

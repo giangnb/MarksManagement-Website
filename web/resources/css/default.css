@@ -1,0 +1,22 @@
+* {
+    transition: ease-in 0.3s;
+}
+
+.box-highlight {
+    padding: 10px 15px;
+    margin: 10px;
+    background: rgba(0,0,0,0.1);
+}
+
+.box-highlight h4 {
+    text-align: center;
+}
+
+.bordered {
+    border: thin solid #fff;
+}
+
+.padded {
+    padding: 5px 10px;
+    margin: 2px 5px;
+}
